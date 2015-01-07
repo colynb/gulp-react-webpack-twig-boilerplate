@@ -1,0 +1,27 @@
+{
+  "name": "landingpage-static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colynb/landingpage-static.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colynb/landingpage-static/issues"
+  },
+  "homepage": "https://github.com/colynb/landingpage-static",
+  "dependencies": {
+    "gulp": "^3.8.10",
+    "gulp-twig": "0.0.4"
+  },
+  "devDependencies": {
+    "gulp-data": "^1.1.1",
+    "gulp-util": "^3.0.2"
+  }
+}
