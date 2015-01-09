@@ -6,7 +6,7 @@ var Hello = React.createClass({
 
   render: function() {
     return (
-      <div>Hello</div>
+      <div>Hello <strong>{this.props.message}</strong></div>
     );
   }
 

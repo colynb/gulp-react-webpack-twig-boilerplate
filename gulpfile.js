@@ -37,7 +37,7 @@ gulp.task('compile', function() {
       }
     }))
     .pipe(twig())
-//    .pipe(coalesce())
+    .pipe(coalesce())
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('./dist'));
 });
@@ -51,8 +51,57 @@ gulp.task('clean', function() {
 
 gulp.task('css', function() {
   return gulp.src(['./src/assets/less/*.less', '!**/_*.less'])
+    .pipe(plumber())
     .pipe(less())
     .pipe(gulp.dest('./dist/assets/css'));
 });
+
+gulp.task('open', function(){
+  var options = {
+    url: 'http://localhost:' + port,
+  };
+  gulp.src('./dist/index.html')
+  .pipe(open('', options));
+});
+
+// live reload server
+gulp.task('connect', function() {
+  connect.server({
+    root: 'dist',
+    port: port,
+    livereload: true
+  });
+});
+
+
+// live reload css
+gulp.task('reload:css', function () {
+  gulp.src('./dist/assets/**/*.css')
+    .pipe(connect.reload());
+});
+
+// live reload js
+gulp.task('reload:js', function () {
+  gulp.src('./dist/assets/**/*.js')
+    .pipe(connect.reload());
+});
+
+// live reload html
+gulp.task('reload:html', function () {
+  gulp.src('./dist/**/*.html')
+    .pipe(connect.reload());
+});
+
+// watch files for live reload
+gulp.task('watch', function() {
+  gulp.watch('./dist/assets/**/*.css', ['reload:css']);
+  gulp.watch('./dist/assets/**/*.js', ['reload:js']);
+  gulp.watch('./dist/**/*.html', ['reload:html']);
+  gulp.watch('./src/assets/less/*.less', ['css']);
+  gulp.watch('./src/**/*.twig', ['compile']);
+  gulp.watch('./src/js/**/*.jsx', ['webpack']);
+});
+
+gulp.task('serve', ['css', 'compile', 'webpack', 'connect', 'open', 'watch']);
 
 gulp.task('default', ['css', 'compile', 'webpack']);

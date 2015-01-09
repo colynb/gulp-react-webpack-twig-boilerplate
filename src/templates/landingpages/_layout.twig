@@ -14,8 +14,12 @@
     {% endblock %}
 </head>
 <body>
-    {% block page %}{% endblock %}
 
+  <div class="ui page grid">
+    <div class="column">
+    {% block page %}{% endblock %}
+    </div>
+  </div>
     {% block scripts %}
       <script src="http://fb.me/react-with-addons-0.12.2.min.js"></script>
       <script src="assets/js/main.js"></script>
