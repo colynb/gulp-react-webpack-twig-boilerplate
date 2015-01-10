@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
 var React = require('react'),
-    Hello = require('./components/Hello.jsx');
+    FeatureList = require('./components/feature-list.jsx');
 
 React.renderComponent(
-  <Hello message="Main" />,
-  document.getElementById('main')
+  <FeatureList />,
+  document.getElementById('features')
 );
