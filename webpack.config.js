@@ -14,6 +14,7 @@ module.exports = {
   },
   externals: {
     "jquery": "jQuery",
+    "bacon": "Bacon",
     "react": "React"
   }
 }
