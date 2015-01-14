@@ -1,8 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 @import '../assets/vendor/bootstrap/less/bootstrap.less';
-
 html {
     position: relative;
     min-height: 100%;
+}
+h1 {
+  font-family: 'Bree Serif', serif;
 }
 .btn-primary {
     color: #ffffff;
@@ -25,4 +28,23 @@ html {
     background-color: #333;
     padding: 50px;
     margin: 15px 0 0 0;
+}
+
+.lp-feature-section {
+  &:nth-child(even) {
+    background: #eee;
+  }
+  padding: 20px 0 40px 0;
+  border-bottom: solid 1px #eee;
+  .lp-feature-section-head {
+    margin-bottom: 50px;
+    font-family: 'Bree Serif', serif;
+  }
+  .lp-feature-section-image {
+    text-align: center;
+  }
+  .lp-feature-section-copy {
+    font-size: 24px;
+    color: #666;
+  }
 }
