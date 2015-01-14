@@ -9,6 +9,9 @@ var FeatureList = React.createClass({
 				<Feature />
 				<Feature />
 				<Feature />
+				<Feature />
+				<Feature />
+				<Feature />
 			</div>
 		);
 	}

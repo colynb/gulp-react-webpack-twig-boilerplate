@@ -9,8 +9,8 @@ React.renderComponent(
   document.getElementById('features')
 );
 
-React.renderComponent(
-  <LoginForm />,
-  document.getElementById('loginForm')
-);
+// React.renderComponent(
+//   <LoginForm />,
+//   document.getElementById('loginForm')
+// );
 

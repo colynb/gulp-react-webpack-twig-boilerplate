@@ -33,6 +33,7 @@ gulp.task('compile', function() {
 
 gulp.task('less', function() {
   return gulp.src(['./src/less/*.less', '!./src/less/_*.less'])
+    .pipe(plumber())
     .pipe(less())
     .pipe(gulp.dest('./dist/assets/css'))
 });
@@ -82,7 +83,7 @@ gulp.task('watch', function() {
   gulp.watch('./dist/assets/**/*.css', ['reload:css']);
   gulp.watch('./dist/assets/**/*.js', ['reload:js']);
   gulp.watch('./dist/*.html', ['reload:html']);
-  gulp.watch('./src/assets/less/*.less', ['less']);
+  gulp.watch('./src/less/*.less', ['less']);
   gulp.watch(['./src/**/*.twig', './src/**/*.json'], ['compile']);
   gulp.watch('./src/js/**/*.jsx', ['webpack']);
 });
